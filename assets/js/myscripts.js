@@ -41,12 +41,19 @@ preloader();
 
 //get username 
 $("#submit").click(function(){
-    $.session.set("username",$("#username").val());
-    $.session.get("username");
-    console.log($.session.get("username"));
-    $("#userdetails").hide()
-    preloader();
-    window.location.href = 'home.html';
+    if( ($("#username").val()!='') && ($("#username").val()!=undefined) ){
+        $("#userdetails .form-group p").hide();
+        $.session.set("username",$("#username").val());
+        $.session.get("username");
+        console.log($.session.get("username"));
+        $("#userdetails").hide();
+        preloader();
+        window.location.href = 'home.html';
+    }
+    else {
+        $("#userdetails .form-group").append('<p>please enter username</p>');
+        $("#userdetails .form-group p").css("color","red");
+    }
 });
 
 // preloader funciton 
