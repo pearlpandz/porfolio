@@ -1,5 +1,5 @@
 // onloading time call function
-$('main, header, footer').hide();
+$('.preloader, header, footer, .userdetails, #banner-all, #skills, #projects, #about_me, #contactus').hide();
 preloader();
 
 //get username 
@@ -16,8 +16,7 @@ function preloader() {
     $('#preloader, .preloader').delay(2000).fadeOut('slow');
     // onload session check
     if($.session.get("username")!=undefined) {
-        $("#userdetails").hide();
-        $('main, header, footer').delay(2000).fadeIn('slow');
+        $('.preloader, header, footer, #banner-all, #skills, #projects, #about_me, #contactus').show();
         getbanners();
         getheaderdetails();
         getskills();
@@ -25,7 +24,7 @@ function preloader() {
         getsociallinks();
     }
     else {
-        $("#userdetails").delay(2000).fadeIn('slow');
+        $("#userdetails").show();
     }
     
 }
