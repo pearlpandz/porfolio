@@ -14,7 +14,6 @@ $("#submit").click(function(){
 function preloader() {
     $("#preloader").append("loading...");
     $('#preloader, .preloader').delay(2000).fadeOut('slow');
-    $('main, header, footer').delay(2000).fadeIn('slow');
     // onload session check
     if($.session.get("username")!=undefined) {
         $("#userdetails").hide();
@@ -26,6 +25,7 @@ function preloader() {
     }
     else {
         $("#userdetails").delay(2000).fadeIn('slow');
+        $('main, header, footer').delay(2000).fadeIn('slow');
     }
     
 }
