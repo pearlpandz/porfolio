@@ -1,0 +1,302 @@
+img {
+	width: 100%;
+	display: inline-block;
+}
+
+/*preloader*/
+.preloader {
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	position: fixed;
+}
+#preloader {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transform: -webkit-translate(-50%, -50%);
+	transform: -moz-translate(-50%, -50%);
+	transform: -ms-translate(-50%, -50%);
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+/*header*/
+header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    padding: 15px;
+}
+header a {
+	display: inline-block;
+	width: 100%;
+}
+header a {
+	color: #fff;
+	text-transform: capitalize;
+}
+header a:hover {
+	text-decoration: none;
+	color: #fff;
+}
+header a img {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: inline-block;
+}
+header a span {
+    font-size: 25px;
+    vertical-align: bottom;
+    margin-left: 10px;
+    display: inline-block;
+}
+
+/*step1 get userdata*/
+#userdetails {
+    position: fixed;
+    top: 50%;
+    left: 20%;
+    transform: translateY(-50%);
+    transform: -webkit-translateY(-50%);
+    transform: -moz-translateY(-50%);
+    transform: -ms-translateY(-50%);
+    width: 60%;
+}
+
+/*banner slider*/
+div#banner-all {
+    display: inline-block;
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+}
+div#banners {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.overlay {
+    background: rgba(0,0,0,0.25);
+    z-index: 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+}
+.item:hover .overlay {
+	background: rgba(0,0,0,0);
+	transition: 0.3s;
+}
+div#banner_contents {
+    position: absolute;
+    top: 70%;
+    transform: translateY(-30%);
+    transform: -webkit-translateY(-30%);
+    transform: -moz-translateY(-30%);
+    transform: -ms-translateY(-30%);
+    left: 10%;
+    width: 80%;
+}
+#banner_contents h4 {
+    font-size: 30px;
+    margin: 0;
+    color: #fff;
+}
+#banner_contents h1 {
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 10px 0 9px 0;
+    color: #fff;
+}
+#banner_contents p {
+    font-size: 34px;
+    margin: 0;
+    color: #fff;
+}
+
+/*skills*/
+#skills, #projects {
+    display: inline-block;
+    width: 100%;
+    margin: -5px 0;
+    background: #f3f3f3;
+    padding: 20px 0;
+}
+#skills h4, #projects .container > h4 {
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 20px;
+}
+#skills ul {
+    display: inline-block;
+    width: 100%;
+    padding: 0;
+}
+#skills ul li {
+    list-style-type: none;
+    background: #000;
+    color: #fff;
+    text-transform: capitalize;
+    padding: 10px;
+    margin: 0.5%;
+    width: 49%;
+    float: left;
+    display: inline-block;
+    transition: 0.3s;
+}
+#skills ul li:hover {
+    box-shadow: 0px 1px 5px 0px #000;
+    transition: 0.3s;
+}
+
+/*projects*/
+#project_slider ul {
+    display: inline-block;
+    width: 100%;
+    padding: 0;    
+}
+#project_slider ul li {
+    list-style: none;
+    background: rgba(0,0,0,0.75);
+    margin-right: 2%;
+    margin-bottom: 10px;
+    width: 32%;
+    float: left;
+    display: inline-block;
+    transition: 0.3s;
+    overflow: hidden;
+}
+#project_slider ul li:nth-child(3n) {
+    margin-right: 0px;
+}
+#project_slider ul li:hover {
+    background: rgba(0,0,0,1);
+    transition: 0.3s;
+}
+#project_slider ul li a:hover {
+    text-decoration: none;
+}
+#project_slider ul li:hover img {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+#project_slider ul li a h4 {
+    color: #fff;
+    padding: 2px 15px;
+    text-transform: capitalize;
+}
+#project_slider ul li a img {
+    height: 160px;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+/*aboutme*/
+#about_me {
+   padding: 40px 0;
+   background: url("../images/aboutme_bg.jpeg") no-repeat fixed center center;
+   background-size: cover;
+}
+#about_me h1 {
+    color: #fff;
+    margin: 0 0 35px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dedede;
+}
+div#about_top {
+    display: inline-block;
+    width: 100%;
+}
+#about_top .profilepic {
+    float: left;
+    width: 20%;
+    display: inline-block;
+}
+#about_top .profilepic img#profilepic {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+}
+.profiledetails {
+    display: inline-block;
+    float: right;
+    width: 75%;
+    margin: 20px 0;
+}
+.profiledetails h4 {
+    font-size: 45px;
+    text-transform: capitalize;
+    color: #fffffff0;
+    display: inline-block;
+    margin: 0;
+}
+.profiledetails h5 {
+    font-size: 20px;
+    text-transform: capitalize;
+    color: #eae2e2;
+    display: inline-block;
+}
+.profiledetails p {
+    font-size: 16px;
+    color: #d2c4c4;
+}
+.name_top {
+    color: #fff;
+}
+.name_top span#location {
+    font-style: italic;
+    font-size: 18px;
+    color: #ded7d7;
+}
+.details_top1 {
+    color: #fff;
+    width: 100%;
+    display: inline-block;
+}
+.details_top1 span {
+    color: #eae2e2;
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+/*footer*/
+footer {
+    background: #000;
+    display: inline-block;
+    width: 100%;
+    padding: 15px 0 10px;
+    margin-bottom: -10px;
+}
+footer p {
+    display: inline-block;
+    float: left;
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+}
+ul#sociallinks {
+    float: right;
+    vertical-align: middle;
+    margin: 0;
+}
+footer li {
+    display: inline-block;
+    margin-right: 10px;
+}
+footer a {
+    color: #fff;
+    font-size: 20px;
+}
