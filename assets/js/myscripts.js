@@ -1,3 +1,40 @@
+var config = {
+    apiKey: "fcafcbc7f2a2ace18ce6721a5bee2a24dc1dad8b",
+    authDomain: "https://createcv-1e398.firebaseio.com/",
+    databaseURL: "https://createcv-1e398.firebaseio.com/",
+    projectId: "createcv-1e398; ?>",
+    storageBucket: "gs://createcv-1e398.appspot.com",
+};
+firebase.initializeApp(config);
+var dbRef = firebase.database();
+var contactsRef = dbRef.ref('users/'); //declared firebase refernce node
+// auto complete
+var demo1 = new autoComplete({
+    selector: '#username',
+    minChars: 1,
+    source: function(term, suggest){
+        // auto suggestion
+        var allusers = [];
+        // get values from firebase
+        contactsRef.on('value', function(snap) {
+            var i=0;
+            $("#userlist").html('');
+            snap.forEach(function(element) {
+                allusers.push(element.key);                
+            });   
+        });
+       
+        term = term.toLowerCase();
+        var choices = allusers;
+        var suggestions = [];
+        for (i=0;i<choices.length;i++)
+            if (~choices[i].toLowerCase().indexOf(term)) 
+            suggestions.push(choices[i]);
+        suggest(suggestions);
+    }
+});
+
+
 // onloading time call function
 $('.preloader, header, footer, .userdetails, #banner-all, #skills, #projects, #about_me, #contactus').hide();
 preloader();
@@ -6,14 +43,17 @@ preloader();
 $("#submit").click(function(){
     $.session.set("username",$("#username").val());
     $.session.get("username");
+    console.log($.session.get("username"));
     $("#userdetails").hide()
     preloader();
+    window.location.href = 'home.html';
 });
 
 // preloader funciton 
 function preloader() {
     $("#preloader").append("loading...");
     $('#preloader, .preloader').delay(2000).fadeOut('slow');
+    console.log($.session.get("username"));
     // onload session check
     if($.session.get("username")!=undefined) {
         $('.preloader, header, footer, #banner-all, #skills, #projects, #about_me, #contactus').show();
@@ -33,17 +73,16 @@ function preloader() {
 function getbanners() {
     // banners
     var firebase_node = $.session.get("username");
-
-    // firebase configuration
-    var config = {
-        apiKey: "fcafcbc7f2a2ace18ce6721a5bee2a24dc1dad8b",
-        authDomain: "https://createcv-1e398.firebaseio.com/",
-        databaseURL: "https://createcv-1e398.firebaseio.com/",
-        projectId: "createcv-1e398; ?>",
-        storageBucket: "gs://createcv-1e398.appspot.com",
-    };
-    firebase.initializeApp(config);
-    var dbRef = firebase.database();
+    // auto suggestion
+    // var config = {
+    //     apiKey: "fcafcbc7f2a2ace18ce6721a5bee2a24dc1dad8b",
+    //     authDomain: "https://createcv-1e398.firebaseio.com/",
+    //     databaseURL: "https://createcv-1e398.firebaseio.com/",
+    //     projectId: "createcv-1e398; ?>",
+    //     storageBucket: "gs://createcv-1e398.appspot.com",
+    // };
+    // firebase.initializeApp(config);
+    // 
     var contactsRef = dbRef.ref('users/'+firebase_node+'/banners');
     contactsRef.once("value", function(snapshot) {
         var banner_contents = '<div id="myCarousel" class="carousel slide" data-ride="carousel"><div class="carousel-inner" id="slideshow">';        
@@ -81,7 +120,7 @@ function getheaderdetails(){
 
     // firebase configuration
 
-    var dbRef = firebase.database();
+    
     var contactsRef = dbRef.ref('users/'+firebase_node+'/profile');
     contactsRef.once("value", function(snapshot) {
         var headercontent = '<img src="'+snapshot.val().profilepic+'" /><span>'+snapshot.val().username+'</span>';
@@ -109,7 +148,7 @@ function getskills(){
 
     // firebase configuration
 
-    var dbRef = firebase.database();
+    
     var contactsRef = dbRef.ref('users/'+firebase_node+'/skills');
     contactsRef.once("value", function(snapshot) {
         snapshot.forEach(function(child) {
@@ -124,7 +163,7 @@ function getprojects() {
     var firebase_node = $.session.get("username");
 
     // firebase configuration
-    var dbRef = firebase.database();
+    
     var contactsRef = dbRef.ref('users/'+firebase_node+'/projects');
     contactsRef.once("value", function(snapshot) {
             var skills_contents = '<ul>';
@@ -142,9 +181,9 @@ var marker;
 function initMap() {
     var firebase_node = $.session.get("username");
     // firebase configuration
-    var dbRef = firebase.database();
     var contactsRef = dbRef.ref('users/'+firebase_node+'/profile');
     contactsRef.once("value", function(snapshot) {
+        console.log(snapshot.val().lat);
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 13,
             center: {lat: parseFloat(snapshot.val().lat), lng: parseFloat(snapshot.val().lang)}
@@ -173,7 +212,7 @@ function getsociallinks(){
 
     // firebase configuration
 
-    var dbRef = firebase.database();
+    
     var contactsRef = dbRef.ref('users/'+firebase_node+'/social');
     contactsRef.once("value", function(snapshot) {
         $('#facebook').attr("href",snapshot.val().facebook);

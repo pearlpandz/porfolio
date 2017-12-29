@@ -7,94 +7,25 @@
         <!-- styles included -->
         <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">  
         <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/auto-complete.css"> 
         <link rel="stylesheet" type="text/css" href="assets/css/styles.css">  
     </head>
     <body>
-        <div class="preloader">
-            <div id="preloader">
-                
+        <div id="userdetails">
+            <div class="form-group">                      
+                <label for="username">Type Your Profile</label>
+                <input autofocus name="username" id="username" type="text" class="form-control">
             </div>
+            <button id="submit" class="btn">Go to My Profile</button>
         </div>
-        <header>
-            <div id="logo">
-                <a href="#navbar"></a>
-            </div>
-        </header>
-        <main>
-            <div id="userdetails" style="display: none;">
-                <div class="form-group">                      
-                    <label for="username">Type Your Profile</label>
-                    <input name="username" id="username" type="text" class="form-control">
-                </div>
-                <button id="submit" class="btn">Go to My Profile</button>
-            </div>
-            <div id="banner-all">
-                 <div id="banners"></div>
-                 <div id="banner_contents">
-                     <h4>Hello, I am <h1 id="username1"></h1><p id="professional"></p></h4>
-                 </div>
-            </div>
-            <div id="skills">
-                <div class="container">
-                    <h4>my skills</h4>
-                    <ul></ul>
-                </div>
-            </div>
-            <div id="projects">
-                <div class="container">
-                    <h4>my projects</h4>
-                    <div id="project_slider"></div>
-                </div>
-            </div>
-            <div id="about_me">
-                <div class="container">
-                    <h1>Who am I?</h1>
-                    <div id="about_top">
-                        <div class="profilepic">
-                            <img id="profilepic" src="">
-                        </div>
-                        <div class="profiledetails">
-                            <div class="name_top"><h4></h4>, <span id="location"></span></div>
-                            <div class="details_top1"><h5></h5> <span>|</span> <span id="email"></span> <span>|</span>  <span id="mobile"></span></div>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="contactus">
-                <div id="map" style="width: 100%; height: 500px;"></div>
-            </div>
-        </main>
-        <footer>
-            <div class="container">
-                <p>© 2018 CreateCV | All Rights Reserved.</p>
-                <ul id="sociallinks">
-                    <li>
-                        <a href="" id="facebook" target="_blank">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" id="twitter" target="_blank">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" id="linkedin" target="_blank">
-                            <i class="fa fa-linkedin" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </footer>
+
         <!-- scripts included -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/angular-1.4.9.min.js"></script>
         <script src="assets/js/firebase.js"></script>
         <script src="assets/js/jquerysession.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAom1PVwNn8gAvSl18fSKRI1Jlu-JOH5fQ&callback=initMap"></script>
+        <script src="assets/js/auto-complete.js"></script>
         <script src="assets/js/myscripts.js"></script>
-
     </body>
 </html>
