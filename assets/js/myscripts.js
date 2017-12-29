@@ -17,6 +17,7 @@ function preloader() {
     // onload session check
     if($.session.get("username")!=undefined) {
         $("#userdetails").hide();
+        $('main, header, footer').delay(2000).fadeIn('slow');
         getbanners();
         getheaderdetails();
         getskills();
@@ -25,7 +26,6 @@ function preloader() {
     }
     else {
         $("#userdetails").delay(2000).fadeIn('slow');
-        $('main, header, footer').delay(2000).fadeIn('slow');
     }
     
 }
